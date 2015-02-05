@@ -3,9 +3,14 @@
 
   <% @comments.each do |comment| %>
   <input type="hidden" value="<%= post = Post.where(id: comment.post_id).first %>">
-  <p> <%= comment.text %> on <a href="/post/<%= post.id %>"><%= post.title %></a></p>
+  <p> <%= comment.text %> - <%= comment.tally %> on <a href="/post/<%= post.id %>"><%= post.title %></a>  <a onclick="upVoteC(<%= comment.id %>,<%=session[:user]%>)"> ^ </a>
+  <a onclick="downVoteC(<%= comment.id %>,<%=session[:user]%>)"> v </a></p>
   <% end %>
 
+  <form action="/vote" method="post">
+    <input type="hidden" name="value" value="0">
+    <input type="hidden">
+  </form>
 
 
 </div>

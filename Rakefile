@@ -122,11 +122,21 @@ namespace :db do
     User.all.each do |user|
       puts "User #{user.id}: #{user.name}, pass: #{user.pass}\n"
     end
+    puts "------"
     Comment.all.each do |comment|
-      puts "Comment #{comment.id} by User #{comment.user_id} on Post #{comment.post_id}: #{comment.text}\n"
+      puts "Comment #{comment.id} by User #{comment.user_id} on Post #{comment.post_id}: #{comment.text}"
     end
+    puts "------"
     Post.all.each do |post|
       puts "Post #{post.id} by User #{post.user_id} - #{post.title}: #{post.text}\n"
+    end
+    puts "------"
+    CommentVote.all.each do |vote|
+      puts "Vote #{vote.id} on Post #{vote.comment_id} from User #{vote.user_id} : #{vote.value}"
+    end
+    puts "------"
+    PostVote.all.each do |vote|
+      puts "Vote #{vote.id} on Post #{vote.post_id} from User #{vote.user_id} : #{vote.value}"
     end
   end
 end

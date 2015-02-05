@@ -3,6 +3,9 @@
   <% @posts.each do |post| %>
   <p>
     <a href="/post/<%= post.id %>"><%= post.title %></a>
+    <a onclick="upVoteP(<%= post.id %>,<%=session[:user]%>)"> ^ </a>
+    <a onclick="downVoteP(<%= post.id %>,<%=session[:user]%>)"> v </a>
+    <%= post.tally %> points
   </p>
   <% end %>
 </div>

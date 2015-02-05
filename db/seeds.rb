@@ -10,7 +10,16 @@ Comment.create(text: Faker::Lorem.paragraph, user_id: 1, post_id: 2)
 Comment.create(text: Faker::Lorem.paragraph, user_id: 2, post_id: 1)
 Comment.create(text: Faker::Lorem.paragraph, user_id: 2, post_id: 2)
 
+PostVote.create(user_id: 1, post_id: 1, value: 1)
+PostVote.create(user_id: 2, post_id: 1, value: -1)
+PostVote.create(user_id: 1, post_id: 2, value: 1)
+PostVote.create(user_id: 2, post_id: 2, value: 1)
 
+
+CommentVote.create(user_id: 1, comment_id: 1, value: 1)
+CommentVote.create(user_id: 2, comment_id: 1, value: -1)
+CommentVote.create(user_id: 1, comment_id: 2, value: 1)
+CommentVote.create(user_id: 2, comment_id: 2, value: 1)
 
 
 

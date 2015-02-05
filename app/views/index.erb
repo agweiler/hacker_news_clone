@@ -3,7 +3,9 @@
   <%= @login %>
   <% @posts.each do |post| %>
   <p>
-    <%= @counter += 1%>. <a href="/post/<%= post.id %>"><%= post.title %></a> by
+    <%= @counter += 1%>. <a href="/post/<%= post.id %>"><%= post.title %></a>
+    <a onclick="upVoteP(<%= post.id %>,<%=session[:user]%>)"> ^ </a>
+    <a onclick="downVoteP(<%= post.id %>,<%=session[:user]%>)"> v </a><%= post.tally %> points by
     <a href="/user/<%= post.user_id %>"><%= User.where(id: post.user_id).first.name %></a>
   </p>
   <% end %>

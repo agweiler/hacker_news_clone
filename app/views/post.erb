@@ -1,16 +1,26 @@
 <div class="container">
-  <h1> <%= @post.title %> by <a href ="/user/<%= @user.id %>"><%= @user.name %></a></h1>
+  <h1>
+    <a onclick="upVoteP(<%= @post.id %>,<%=session[:user]%>)"> ^ </a>
+    <a onclick="downVoteP(<%= @post.id %>,<%=session[:user]%>)"> v </a>
+    <%= @post.title %><br> <%= @post.tally %> points by <a href ="/user/<%= @user.id %>"><%= @user.name %></a>
+  </h1>
   <p> <%= @post.text %> </p>
 
 
 
   <% @comments.each do |comment| %>
+
   <input type="hidden" value="<%= user = User.where(id: comment.user_id).first%>">
-  <h3><a href="/user/<%= user.id %>"> <%= user.name %></a></h3>
-  <p> <%= comment.text %> </p>
+  <h3><a href="/user/<%= user.id %>"><%= user.name %> </a></h3>
+  <a onclick="upVoteC(<%= comment.id %>,<%=session[:user]%>)"> ^ </a>
+  <a onclick="downVoteC(<%= comment.id %>,<%=session[:user]%>)"> v </a>
+  <p><%= comment.text %> - <%= comment.tally %> points</p>
+
   <% end %>
 
 
 
+
 </div>
+
 
