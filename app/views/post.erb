@@ -1,0 +1,16 @@
+<div class="container">
+  <h1> <%= @post.title %> by <a href ="/user/<%= @user.id %>"><%= @user.name %></a></h1>
+  <p> <%= @post.text %> </p>
+
+
+
+  <% @comments.each do |comment| %>
+  <input type="hidden" value="<%= user = User.where(id: comment.user_id).first%>">
+  <h3><a href="/user/<%= user.id %>"> <%= user.name %></a></h3>
+  <p> <%= comment.text %> </p>
+  <% end %>
+
+
+
+</div>
+

@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Welcome to Ahcker News!</h1>
+  <%= @login %>
+  <% @posts.each do |post| %>
+  <p>
+    <%= @counter += 1%>. <a href="/post/<%= post.id %>"><%= post.title %></a> by
+    <a href="/user/<%= post.user_id %>"><%= User.where(id: post.user_id).first.name %></a>
+  </p>
+  <% end %>
+
+
+  <hr>
+  Copyright @ Username 2015 <a href="/logout"> Log Out</a>
+</div>

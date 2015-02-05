@@ -1,0 +1,12 @@
+<div class="container">
+
+  <h1> Login </h1>
+
+  <form action="/login" method="post">
+    <input type="text" name="name" value="Username">
+    <br><input type="password" name="pass" value="Password"></br>
+    <input type="submit" value="login"><%= @error %>
+  </form>
+
+<p> Don't have an account? <a href="/sign_up">Sign up!</a></p>
+</div>

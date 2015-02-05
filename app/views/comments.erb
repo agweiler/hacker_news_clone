@@ -1,0 +1,11 @@
+<div class="container">
+  <h1> All comments for <a href="/user/<%= @user.id %>"><%= @user.name %></a></h1>
+
+  <% @comments.each do |comment| %>
+  <input type="hidden" value="<%= post = Post.where(id: comment.post_id).first %>">
+  <p> <%= comment.text %> on <a href="/post/<%= post.id %>"><%= post.title %></a></p>
+  <% end %>
+
+
+
+</div>
